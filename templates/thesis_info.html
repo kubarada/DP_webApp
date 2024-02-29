@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>PigVital</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: block; /* Changed from flex to block */
+            overflow: auto; /* Changed from hidden to auto to allow scrolling */
+        }
+
+        .container {
+            margin-top: 20px; /* Adjust as needed for spacing from the top */
+            width: 90%;
+            max-width: 960px;
+            margin-left: auto; /* Centers the container horizontally */
+            margin-right: auto; /* Centers the container horizontally */
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        footer {
+        width: 100%;
+        background-color: #fff;
+        padding: 20px 0;
+        text-align: center;
+        }
+
+        .emblems {
+        text-align: center; /* Centers the logo within their container */
+        padding: 10px 0; /* Optional: Adds some padding above and below the logo */
+        }
+
+        .emblems img {
+            display: inline-block; /* This will ensure logo are next to each other */
+            margin: 0 10px; /* Keeps a little space between the logo */
+            height: 150px; /* Adjusts the size of the logo */
+            vertical-align: middle; /* Aligns logo vertically in case they are of different heights */
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3E3C3C; /* Updated to a deeper shade for a modern look */
+            color: #fff;
+            padding: 10px 20px; /* Adjusted padding for a sleeker look */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Soft shadow for depth */
+        }
+        .navbar-title {
+            color: #fff;
+            font-size: 28px; /* Adjust the size of the title next to the logo */
+            font-weight: bold; /* Makes the title bold */
+            display: flex; /* This will allow you to use align-items */
+            align-items: center; /* This is theoretically redundant here but included for clarity */
+            height: 100%; /* Ensures the title spans the full height of its parent */
+            font-family: 'Roboto Mono', monospace; /* sChange to 'Kode Mono' if available */
+
+
+        }
+
+        .navbar-logo img {
+            height: 50px; /* Adjust if necessary to control the logo's size */
+            transition: transform 0.5s ease; /* For a smooth zoom effect on hover */
+        }
+
+        .navbar-logo img:hover {
+            transform: scale(1.1); /* Slightly enlarges the logo on hover */
+        }
+
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 10px 15px; /* Add padding for a button-like appearance */
+            border-radius: 5px; /* Rounded corners for a modern look */
+            font-size: 20px; /* Increased font size for better visibility */
+            transition: background-color 0.3s ease; /* Smooth background transition on hover */
+        }
+
+        .navbar-links a:hover, .navbar-links a:focus {
+            background-color: #666464; /* Slightly darker on hover/focus for feedback */
+            text-decoration: none; /* No underline on hover */
+        }
+
+        .navbar-logo {
+        display: flex; /* Ensures logo and title are in a flex container */
+        align-items: center; /* Centers them vertically */
+        text-decoration: none;
+        gap: 10px;
+    }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+    <a href="/" class="navbar-logo">
+        <img src="{{ url_for('static', filename='logo/logo.png') }}" alt="Logo" style="height: 60px;">
+        <span class="navbar-title">PigVitals</span> <!-- Title next to the logo -->
+    </a>
+    <div class="navbar-links">
+        <a href="/">Hlavní stránka</a>
+        <a href="/thesis_info">Diplomová práce</a>
+        <a href="/contact">Kontaktujte nás</a>
+
+    </div>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <h1>Diplomová práce</h1>
+            <p>Tato webová aplikace vznikla v rámci diplomové práce a představuje inovativní nástroj pro monitorování zdravotního stavu prasat v biomedicínském centru Lékařské fakulty Univerzity Karlovy v Plzni. Projekt efektivně propojuje disciplíny kybernetiky a biomedicínského výzkumu, čímž značně přispívá k lepšímu pochopení a správě zdraví těchto zvířat. Prasata, hrající klíčovou roli jako modelové organismy v biomedicíně, tak mohou být sledována s větší přesností a efektivitou.</p>
+            <h2>Motiavce diplomové práce</h2>
+            <p>Prasata jsou často používána v biomedicínských výzkumech díky jejich fyziologické a anatomické podobnosti s lidmi. Správné monitorování a zaznamenávání zdravotního stavu těchto zvířat je klíčové pro úspěch výzkumných projektů a také pro zajištění dobrých životních podmínek zvířat. Vzhledem k rozsáhlosti dat a potřebě efektivního sledování individuálního zdraví zvířat vznikla potřeba digitalizace a automatizace tohoto procesu.</p>
+            <h2>Využité technologie</h2>
+            <p>Frontend aplikace je postaven na webovém frameworku Flask, což je populární nástroj pro vývoj webových aplikací v jazyce Python, který umožňuje rychlý vývoj a snadnou integraci s různými komponentami backendu. Backend aplikace kombinuje pokročilé technologie sledování objektů pomocí neuronových sítí. Největší část tvoří MMTracking (od OpenMM Lab), který je využíván pro efektivní a přesné sledování pohybu prasat v reálném čase. MMTracking konkrétně využívá kombinaci DeepSORTu jakožto trackovacího algoritmu a Faster R-CNN k detekci.</p>
+        </div>
+        <footer>
+        <div class="emblems">
+            <img src="{{ url_for('static', filename='logo/FAV_logo.png') }}" alt="University 1 Emblem">
+            <img src="{{ url_for('static', filename='logo/biom_logo.png') }}" alt="University 2 Emblem">
+        </div>
+    </footer>
+    </div>
+</body>
+
+</html>
