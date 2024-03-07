@@ -34,7 +34,7 @@ def generate_video_stream(video_path):
         if ret:
             # Write some Text
             font = cv2.FONT_HERSHEY_SIMPLEX
-            cv2.putText(frame, 'Ticks: ' + str(i) , (10, 50), font, 1, (255, 255, 255), 2, cv2.LINE_AA)
+            #cv2.putText(frame, 'Ticks: ' + str(i) , (10, 50), font, 1, (255, 255, 255), 2, cv2.LINE_AA)
             i +=1
             # Encode frame as JPEG
             ret, buffer = cv2.imencode('.jpg', frame)
@@ -58,7 +58,7 @@ def index():
 
 @app.route('/video_feed')
 def video_feed():
-    return Response(generate_video_stream('static/demo.mp4'),
+    return Response(generate_video_stream('static/pig_demo_deepsort_info_demo.mp4'),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/contact')
