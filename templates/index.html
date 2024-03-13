@@ -242,7 +242,7 @@
             justify-content: flex-start; /* Align items to the start */
             padding: 20px;
             height: 150px; /* Adjust height as needed */
-            background-color: #ffffff;
+            background-color: #3E3C3C;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             text-align: center;
@@ -259,13 +259,14 @@
         .frame-card-title {
             margin-top: -10px; /* Move title up; adjust value as needed */
             font-size: 22px;
+            color: #ffffff;
             font-weight: 600;
             margin-bottom: 20px; /* Increase space between title and frame count */
         }
 
         .frame-card-count {
             font-size: 14px;
-            color: #555;
+            color: #ffffff;
             text-align: left;
         }
      </style>
@@ -297,14 +298,14 @@
                             // Create and append the headline/title for each card
                             const cardTitle = document.createElement('div');
                             cardTitle.className = 'frame-card-title';
-                            cardTitle.innerText = `Pig ID: ${i}`;
+                            cardTitle.innerText = `Prase číslo ${i}`;
                             card.appendChild(cardTitle);
 
                             // Create and append the frame count element under the title
 
                             const frameCountElement = document.createElement('div');
                             frameCountElement.className = 'frame-card-count';
-                            frameCountElement.innerText = `Frame number: ${frameCount}`;
+                            frameCountElement.innerText = `Počet snímků: ${frameCount}`;
                             card.appendChild(frameCountElement);
 
                             cardsContainer.appendChild(card);
