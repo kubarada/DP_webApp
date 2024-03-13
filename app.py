@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, Response, flash, session
+from flask import Flask, render_template, request, redirect, url_for, Response, flash, session, jsonify
 from flask_mail import Mail, Message
 import cv2
 import time
@@ -17,8 +17,29 @@ app.secret_key = 'kuba12345'
 
 mail = Mail(app)
 
+current_frame_count = 0  # Global variable to track frame count
+
+number_of_cards = 2 # Example starting value
+
+# Route to update number_of_cards, for demonstration
+@app.route('/update_cards/<int:new_count>')
+def update_cards(new_count):
+    global number_of_cards
+    number_of_cards = new_count
+    return jsonify(success=True)
+
+# Route to get the current number of cards
+@app.route('/get_number_of_cards')
+
+def get_number_of_cards():
+    return jsonify(number_of_cards=number_of_cards)
+@app.route('/current_frame')
+def current_frame():
+    return {'frame': current_frame_count}
+
 def generate_video_stream(video_path):
     cap = cv2.VideoCapture(video_path)
+    global current_frame_count
 
     # Check if video opened successfully
     if not cap.isOpened():
@@ -27,20 +48,14 @@ def generate_video_stream(video_path):
 
     fps = cap.get(cv2.CAP_PROP_FPS)  # Get the original video's frame rate
     frame_delay = 1 / fps  # Calculate the delay between frames for real-time playback
-    i = 0
 
     while cap.isOpened():
         ret, frame = cap.read()
         if ret:
-            # Write some Text
-            font = cv2.FONT_HERSHEY_SIMPLEX
-            #cv2.putText(frame, 'Ticks: ' + str(i) , (10, 50), font, 1, (255, 255, 255), 2, cv2.LINE_AA)
-            i +=1
+            current_frame_count += 1
             # Encode frame as JPEG
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
-
-            # Yield a frame as a byte stream
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 

@@ -7,6 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <title>PigVital</title>
     <style>
+        :root {
+        --background-color: #f8f9fa;
+        --primary-text-color: #212529;
+        --accent-color: #007bff;
+        --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        --border-radius: 8px;
+        --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -113,84 +121,206 @@
         align-items: center; /* Centers them vertically */
         text-decoration: none;
         gap: 10px;
-    }
-    .card {
-  display: flex;
-  margin-left: 20px;
-  height: 50px;
-  width: 300px;
-}
+        }
+        .card {
+          display: flex;
+          margin-left: 20px;
+          height: 50px;
+          width: 300px;
+        }
 
-.card svg {
-  position: absolute;
-  display: flex;
-  width: 60%;
-  height: 100%;
-  font-size: 24px;
-  font-weight: 700;
-  opacity: 1;
-  transition: opacity 0.25s;
-  z-index: 2;
-  padding: 0.25rem;
-  cursor: pointer;
-}
+        .card svg {
+          position: absolute;
+          display: flex;
+          width: 60%;
+          height: 100%;
+          font-size: 24px;
+          font-weight: 700;
+          opacity: 1;
+          transition: opacity 0.25s;
+          z-index: 2;
+          padding: 0.25rem;
+          cursor: pointer;
+        }
 
-.card .social-link1,.card .social-link2,.card .social-link3,.card .social-link4,.card .social-link5 {
-  position: relative;
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 25%;
-  color: whitesmoke;
-  font-size: 24px;
-  text-decoration: none;
-  transition: 0.25s;
-  border-radius: 50px;
-}
+        .card .social-link1,.card .social-link2,.card .social-link3,.card .social-link4,.card .social-link5 {
+          position: relative;
+          margin-left: auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 25%;
+          color: whitesmoke;
+          font-size: 24px;
+          text-decoration: none;
+          transition: 0.25s;
+          border-radius: 50px;
+        }
 
-.card svg {
-  transform: scale(1);
-}
+        .card svg {
+          transform: scale(1);
+        }
 
-.card .social-link1:hover {
-  background: #f09433;
-  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
-  animation: bounce_613 0.4s linear;
-}
+        .card .social-link1:hover {
+          background: #f09433;
+          background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+          background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+          background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+          animation: bounce_613 0.4s linear;
+        }
 
-.card .social-link2:hover {
-  background-color: #242c34;
-  animation: bounce_613 0.4s linear;
-}
+        .card .social-link2:hover {
+          background-color: #242c34;
+          animation: bounce_613 0.4s linear;
+        }
 
-.card .social-link4:hover {
-  background-color: #0a66c2;
-  animation: bounce_613 0.4s linear;
-}
+        .card .social-link4:hover {
+          background-color: #0a66c2;
+          animation: bounce_613 0.4s linear;
+        }
 
 
-@keyframes bounce_613 {
-  40% {
-    transform: scale(1.4);
-  }
+        @keyframes bounce_613 {
+          40% {
+            transform: scale(1.4);
+          }
 
-  60% {
-    transform: scale(0.8);
-  }
+          60% {
+            transform: scale(0.8);
+          }
 
-  80% {
-    transform: scale(1.2);
-  }
+          80% {
+            transform: scale(1.2);
+          }
 
-  100% {
-    transform: scale(1);
-  }
-}
-    </style>
+          100% {
+            transform: scale(1);
+          }
+        }
+        .frame-count-container {
+            display: inline-flex;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .frame-count-container:hover {
+            transform: translateY(-5px);
+            cursor: pointer;
+        }
+
+        #frameCountContainer {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+        }
+
+        #frameCount {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .frame-cards-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px; /* Adjust the space between cards */
+            padding: 20px;
+        }
+
+        .frame-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Align items to the start */
+            padding: 20px;
+            height: 150px; /* Adjust height as needed */
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            width: 190px; /* Adjust width as needed */
+            transition: transform 0.3s ease;
+            margin: 10px;
+        }
+
+        .frame-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .frame-card-title {
+            margin-top: -10px; /* Move title up; adjust value as needed */
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px; /* Increase space between title and frame count */
+        }
+
+        .frame-card-count {
+            font-size: 14px;
+            color: #555;
+            text-align: left;
+        }
+     </style>
+
+     <script>
+
+        function updateCards() {
+            // Fetch the number of cards
+            fetch('/get_number_of_cards')
+            .then(response => response.json())
+            .then(data => {
+                const cardsContainer = document.getElementById('cardsContainer');
+                const numberOfCards = data.number_of_cards;
+
+                // Clear existing cards to recreate them with updated frame count
+                cardsContainer.innerHTML = '';
+
+                // Fetch the current frame count
+                fetch('/current_frame')
+                .then(frameResponse => frameResponse.json())
+                .then(frameData => {
+                    const frameCount = frameData.frame;
+
+                    // Create new cards based on number_of_cards and set frame count
+                        for (let i = 0; i < numberOfCards; i++) {
+                            const card = document.createElement('div');
+                            card.className = 'frame-card';
+
+                            // Create and append the headline/title for each card
+                            const cardTitle = document.createElement('div');
+                            cardTitle.className = 'frame-card-title';
+                            cardTitle.innerText = `Pig ID: ${i}`;
+                            card.appendChild(cardTitle);
+
+                            // Create and append the frame count element under the title
+
+                            const frameCountElement = document.createElement('div');
+                            frameCountElement.className = 'frame-card-count';
+                            frameCountElement.innerText = `Frame number: ${frameCount}`;
+                            card.appendChild(frameCountElement);
+
+                            cardsContainer.appendChild(card);
+                        }
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        }
+
+        // Initial call to setup cards and periodic updates
+        updateCards();
+
+        setInterval(updateCards, 3000); // Update every 3 seconds
+
+    </script>
+
 </head>
 <body>
     <nav class="navbar">
@@ -223,19 +353,25 @@
 </div>
     </nav>
     <div class="container">
+
         <div class="video-container">
             <img src="{{ url_for('video_feed') }}" style="width:100%; height:auto;">
         </div>
+
+        <div class="frame-cards-container" id="cardsContainer">
+            <!-- Cards will be dynamically inserted here -->
+        </div>
+
         <div class="content">
             <h1>Sledování zdravotního stavu prasat</h1>
             <p>Vítejte na webové aplikaci, která slouží doktorům v Biomedicinském centru LF UK v Plzni pro sledování zdravotního stavu prasat po transplantaci jater.</p>
         </div>
         <footer>
-        <div class="emblems">
-            <img src="{{ url_for('static', filename='logo/FAV_logo.png') }}" alt="University 1 Emblem">
-            <img src="{{ url_for('static', filename='logo/biom_logo.png') }}" alt="University 2 Emblem">
-        </div>
-    </footer>
+            <div class="emblems">
+                <img src="{{ url_for('static', filename='logo/FAV_logo.png') }}" alt="University 1 Emblem">
+                <img src="{{ url_for('static', filename='logo/biom_logo.png') }}" alt="University 2 Emblem">
+            </div>
+        </footer>
     </div>
 </body>
 
